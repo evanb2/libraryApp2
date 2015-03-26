@@ -108,23 +108,5 @@
             $GLOBALS['DB']->exec("DELETE FROM books WHERE id = {$this->getId()};");
             $GLOBALS['DB']->exec("DELETE FROM books_patrons WHERE book_id = {$this->getId()};");
         }
-
-        // static function searchAuthor($search)
-        // {
-        //     // $search = $_POST['search_author'];
-        //     // $query = $GLOBALS['DB']->query("SELECT * FROM books WHERE author LIKE '% . $search . %';");
-        //     $query = $GLOBALS['DB']->query("SELECT * FROM books WHERE author LIKE {$search};");
-        //     $search_results = $query->fetchAll(PDO::FETCH_ASSOC);
-        //
-        //     $authors = array();
-        //     foreach($search_results as $result) {
-        //         $author = $result['author'];
-        //         $title = $result['title'];
-        //         $id = $result['id'];
-        //         $new_book = new Book($author, $title, $id);
-        //         array_push($authors, $new_book);
-        //     }
-        //     return $authors;
-        // }
     }
 ?>

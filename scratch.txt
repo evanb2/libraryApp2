@@ -5,54 +5,53 @@ id
 
 Class Patron
 ----------
-name varchar
-phone varchar
-id int
+name
+phone
+id
 
 Class Author
 ------------
-name varchar
-id int
+name
+id
+
+Class Copy
+----------
+numberof
+id
 
 books
 ----------
-title varchar
-id int
+title | varchar
+id | int
 
 authors
 -------
-name var char
-id int
+name | var char
+id | int
 
 books_authors
 -------------
-book_id int
-author_id int
+book_id | int
+author_id | int
 
 patrons
 ----------
-name varchar
-phone varchar
-id int
+name | varchar
+phone | varchar
+id | int
 
 books_patrons
 -------------
-book_id int
-patron_id int
-id int
+book_id | int
+patron_id | int
+id | int
 
-
-
-
-authors
-----------
-title varchar
-id int
 
 copies
 ----------
-number varchar
-id int
+numberof | int
+book_id | int
+id | int
 
 checkouts (patrons and copies)
 ----------
