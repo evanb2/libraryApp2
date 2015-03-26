@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Library Database</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Add A Book</h1>
+            {% if books is not empty %}
+            <p>All available books:</p>
+              <ul>
+                {% for book in books %}
+                  <li><a href="/books/{{ book.getId }}">{{ book.getAuthor }} : {{ book.getTitle }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            <form action='/books' method='post'>
+              <label for='author'>Author:</label>
+              <input id='author' name='author' type='text'>
+              <label for='title'>Title:</label>
+              <input id='title' name='title' type='text'>
+
+              <button type='submit'>Add Book to Registry</button>
+            </form>
+            <form action='/delete_books' method='post'>
+              <button type='submit'>Remove All Books from the Database</button>
+            </form>
+
+            <p><a href='/'>Home</a></p>
+        </div>
+    </body>
+</html>

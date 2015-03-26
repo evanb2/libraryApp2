@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Library Database</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+</head>
+<body>
+  <div class='container'>
+    <h1>Patrons</h1>
+
+    {% if patrons is not empty %}
+      <p>All patrons in Registry:</p>
+      <ol>
+        {% for patron in patrons %}
+          <li><a href='/patrons/{{ patron.getId }}'>Name: {{ patron.getName }} Phone: {{ patron.getPhone }}</a></li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+
+    <form action='/patrons' method='post'>
+      <label for='name'>Patron Name:</label>
+      <input id='name' name='name' type='text'>
+      <label for='phone'>Phone Number:</label>
+      <input id='phone' name='phone' type='text'>
+
+      <button type='submit'>Add Patron</button>
+    </form>
+    <form action='/delete_patrons' method='post'>
+      <button type='submit'>Delete</button>
+    </form>
+    <p><a href='/'>Home</a></p>
+  </div>
+</body>
+</html>

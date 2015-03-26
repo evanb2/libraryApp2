@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Library Database</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Library Database</h1>
+        </div>
+        <div class='container'>
+            <h3><a href="/books">Add or view a Book</a></h3>
+            <h3><a href="/patrons">Add or view library patrons</a></h3>
+
+            <p>Search by Author</p>
+            <form name="search_author" method="post" action="/searchresults/{id}">
+                <input name="search_author" type="text" size="40" maxlength="40">
+                <input type="submit" name="Submit" value="Search">
+            </form>
+        </div>
+    </body>
+</html>
