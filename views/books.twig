@@ -16,10 +16,14 @@
             {% endif %}
 
             <form action='/books' method='post'>
+                <label for='title'>Title:</label>
+                <input id='title' name='title' type='text'>
+
               <label for='name'>Author:</label>
               <input id='name' name='name' type='text'>
-              <label for='title'>Title:</label>
-              <input id='title' name='title' type='text'>
+
+              <label for='name2'>Additional Author:</label>
+              <input id='name2' name='name2' type='text'>
 
               <button type='submit'>Add Book to Registry</button>
             </form>

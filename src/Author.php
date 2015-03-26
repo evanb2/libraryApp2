@@ -70,5 +70,18 @@
             return $found_author;
         }
 
+        static function searchAuthors($search_name)
+        {
+            $search_name = $_POST['search_author'];
+            $returned_authors = $GLOBALS['DB']->query("SELECT * FROM authors WHERE {$search_name} == {$name};");
+            $authors = array();
+            foreach($returned_authors as $author) {
+                $name = $author['name'];
+                $id = $author['id'];
+                $new_author = new Author($name, $id);
+                array_push($authors, $new_author);
+            }
+            return $authors;
+        }
     }
 ?>

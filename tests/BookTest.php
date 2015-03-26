@@ -226,28 +226,5 @@
             //Assert
             $this->assertEquals([], $test_patron->getBooks());
         }
-
-        // function test_searchAuthor()
-        // {
-        //     //Arrange
-        //     $title = "Hunt For The Red October";
-        //     $id = 1;
-        //     $test_book = new Book($title, $id);
-        //     $test_book->save();
-        //
-        //     $title2 = "Tale of Two Cities";
-        //     $id2 = 2;
-        //     $test_book2 = new Book ($title2, $id2);
-        //     $test_book2->save();
-        //
-        //     $test_search = "Tom Clancy";
-        //
-        //     //Act
-        //     $books = Book::getAll();
-        //     $result = $books->searchAuthor($test_search);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_book, $result);
-        // }
     }
 ?>

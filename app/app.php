@@ -54,6 +54,9 @@
         $name = $_POST['name'];
         $author = new Author($name);
         $author->save();
+        $name = $_POST['name2'];
+        $author2 = new Author($name);
+        $author2->save();
         $title = $_POST['title'];
         $book = new Book($title);
         $book->save();
@@ -116,12 +119,11 @@
         return $app['twig']->render('book.twig', array('book' => $book, 'patrons' => $book->getPatrons(), 'all_patrons' => Patron::getAll()));
     });
 
-    // $app->post("/searchresults/{id}", function($id) use ($app) {
-    //     $book = Book::find($id);
-    //     $search = $_POST['search_author'];
-    //     $results = Book::searchAuthor($search);
-    //     return $app['twig']->render('searchresults.twig', array('book' => $book, 'search_author' => $results, 'books' => Book::getAll()));
-    // });
+    $app->post("/searchresults", function() use ($app) {
+        $search_name = $_POST['search_author'];
+        $results = searchAuthors($search_name);
+        return $app['twig']->render('searchresults.twig', array('book' => $book, 'search_author' => $results, 'books' => Book::getAll()));
+    });
 
     return $app;
 
