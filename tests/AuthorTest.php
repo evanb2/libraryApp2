@@ -19,11 +19,123 @@
         }
 
         function test_getName()
+        {
+            //Arrange
+            $name = "Charles Dickens";
+            $id = 1;
+            $test_author = new Author($name, $id);
+
+            //Act
+            $result = $test_author->getName();
+
+            //Assert
+            $this->assertEquals($name, $result);
+        }
 
         function test_getId()
+        {
+            //Arrange
+            $name = "Charles Dickens";
+            $id = 1;
+            $test_author = new Author($name, $id);
+
+            //Act
+            $result = $test_author->getId();
+
+            //Assert
+            $this->assertEquals($id, $result);
+        }
+
+        function test_setId()
+        {
+            //Arrange
+            $name = "Charles Dickens";
+            $id = 1;
+            $test_author = new Author($name, $id);
+
+            //Act
+            $test_author->setId(2);
+            $result = $test_author->getId();
+
+            //Assert
+            $this->assertEquals(2, $result);
+        }
 
         function test_save()
+        {
+            //Arrange
+            $name = "Charles Dickens";
+            $id = 1;
+            $test_author = new Author($name, $id);
+            $test_author->save();
+
+            //Act
+            $result = Author::getAll();
+
+            //Assert
+            $this->assertEquals($test_author, $result[0]);
+        }
 
         function test_getAll()
+        {
+            //Arrange
+            $name = "Charles Dickens";
+            $id = 1;
+            $test_author = new Author($name, $id);
+            $test_author->save();
+
+            $name2 = "Tom Clancy";
+            $id2 = 2;
+            $test_author2 = new Author($name2, $id2);
+            $test_author2->save();
+
+            //Act
+            $result = Author::getAll();
+
+            //Assert
+            $this->assertEquals([$test_author, $test_author2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            //Arrange
+            $name = "Charles Dickens";
+            $id = 1;
+            $test_author = new Author($name, $id);
+            $test_author->save();
+
+            $name2 = "Tom Clancy";
+            $id2 = 2;
+            $test_author2 = new Author($name2, $id2);
+            $test_author2->save();
+
+            //Act
+            Author::deleteAll();
+            $result = Author::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
+        function test_find()
+        {
+            //Arrange
+            $name = "Charles Dickens";
+            $id = 1;
+            $test_author = new Author($name, $id);
+            $test_author->save();
+
+            $name2 = "Tom Clancy";
+            $id2 = 2;
+            $test_author2 = new Author($name2, $id2);
+            $test_author2->save();
+
+            //Act
+            $result = Author::find($test_author->getId());
+
+            //Assert
+            $this->assertEquals($test_author, $result);
+
+        }
     }
 ?>

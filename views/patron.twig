@@ -11,7 +11,7 @@
       <p>Here are the Books this Patron has checked out:</p>
       <ul>
         {% for book in books %}
-          <li>{{ book.getAuthor }} : {{ book.getTitle }}</li>
+          <li>{{ book.getTitle }}</li>
         {% endfor %}
       </ul>
     {% endif %}

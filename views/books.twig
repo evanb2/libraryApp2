@@ -10,14 +10,14 @@
             <p>All available books:</p>
               <ul>
                 {% for book in books %}
-                  <li><a href="/books/{{ book.getId }}">{{ book.getAuthor }} : {{ book.getTitle }}</a></li>
+                  <li><a href="/books/{{ book.getId }}">{{ book.getTitle }}</a></li>
                 {% endfor %}
               </ul>
             {% endif %}
 
             <form action='/books' method='post'>
-              <label for='author'>Author:</label>
-              <input id='author' name='author' type='text'>
+              <label for='name'>Author:</label>
+              <input id='name' name='name' type='text'>
               <label for='title'>Title:</label>
               <input id='title' name='title' type='text'>
 

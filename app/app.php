@@ -2,6 +2,7 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Patron.php";
     require_once __DIR__."/../src/Book.php";
+    require_once __DIR__."/../src/Author.php";
 
     $app = new Silex\Application();
 
@@ -27,7 +28,7 @@
 
     //READ all books
     $app->get("/books", function() use ($app) {
-        return $app['twig']->render('books.twig', array('books' => Book::getAll()));
+        return $app['twig']->render('books.twig', array('books' => Book::getAll(), 'authors' => Author::getAll()));
     });
 
     //READ singular book
@@ -50,10 +51,13 @@
 
     //CREATE book
     $app->post("/books", function() use ($app) {
+        $name = $_POST['name'];
+        $author = new Author($name);
+        $author->save();
         $title = $_POST['title'];
         $book = new Book($title);
         $book->save();
-        return $app['twig']->render('books.twig', array('books' => Book::getAll()));
+        return $app['twig']->render('books.twig', array('books' => Book::getAll(), 'authors' => Author::getAll()));
     });
 
     //CREATE patron
